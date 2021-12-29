@@ -21,6 +21,8 @@ The app will:
 - Notify you of changes via Textbelt or Pushover
 - Run the checks on a regular interval
 
+The app will only do the things that it has configuration for. It will skip any steps that are not configured.
+
 There will be two files created in the same directory as the application:
 - settings.json - This will contain all the application settings. It will contain personal info
 so do not share it with anybody.
