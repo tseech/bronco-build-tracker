@@ -10,4 +10,5 @@ function build {
 
 build darwin amd64
 build linux arm
+build linux amd64
 build windows amd64 ".exe"

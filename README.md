@@ -1,17 +1,23 @@
 # Bronco Build Tracker
-When Ford is building a vehicle that is a special order
-there is a tracking website to show the progress and provide
-access to the window sticker when it is ready. Instead
-of refreshing the page on every opportunity, I wrote some
-Bash scripts to notify me of changes. To share this capability and
-take an opportunity to play with Go, I created this. Pleas forgive
-the overall quality as it is more of a toy than anything. It might be
-useful, but it comes with no guarantees.
+When Ford is building a Bronco that is a special order there is are a few tracking website
+to show the progress. I have been waiting for my Bronco build and instead of refreshing the 
+pages on every opportunity, I wrote some Bash scripts to notify me of changes. To share this
+capability and take an opportunity to play with Go, I created this. Please forgive the overall
+quality as it is more of a toy than anything. It might be useful, but it comes with no guarantees.
+
+Privacy is important, so I have published the source here to make it clear that no sensitive information
+leaves you computer system. You do not need to share any of your info with any external service (other than
+the Ford services that this tool interacts with, of course.)
+
+The status websites (names for trackers came from my friends at https://www.bronco6g.com/):
+- The "Pizza Tracker" is sent to you when you get a VIN (https://shop.ford.com/vehicleordertracking)
+- There is a link to a Window Sticker PDF on the "Pizza Tracker"
+- The "Backdoor Tracker" is a reservation tracker from Ford (https://www.ford.com/buy/manage.html?reservationId=xxxxxxx)
 
 The app will:
-- Check the status site and track progress (pizza tracker)
+- Check the Pizza Tracker and track progress
 - Check the window sticker link and track changes
-- Check the authenticated status site and track progress (backdoor tracker)
+- Check the Backdoor Tracker and track progress 
 - Notify you of changes via Textbelt or Pushover
 - Run the checks on a regular interval
 
@@ -40,6 +46,30 @@ Application Options:
 Help Options:
   -h, --help            Show this help message
 ```
+## Getting started
+Fair warning - This is not made to be easy for non-technical people. I think with a little effort
+almost anybody can get it working, but ut may take some work or learning.
+
+Note: This app stays running and if you want to keep it going you all the time you need to make sure your
+computer doesn't go to sleep! If it doesn't you will not get notified.
+### Mac
+- Download the `bronco-build-tracker-darwin-amd64` binary from the releases
+- You can double-click on the download and it will open a terminal and start running (or run in from the terminal if you know how to)
+- Answer the questions the app asks you (VIN, Order ID, etc.)
+- Let it run
+### Linux
+- Download the `bronco-build-tracker-linux-arm` or `bronco-build-tracker-linux-amd64` based on your process from the releases
+- Run it from the terminal using and answer the questions or use the flags
+- If you want it to run in the background do something like `nohup ./bronco-build-tracker-linux-arm &`
+- Let it run (to stop it you can find the process using `ps -ef | grep bronco` and then `kill` the process)
+### Windows 
+__I have not tested this, so feedback would be great...at least let me know if it works__
+- Download the `bronco-build-tracker-windows-amd64.exe` binary from the releases
+- Double-click on it?
+- Answer the questions the app asks you (VIN, Order ID, etc.)
+- Let it run
+
+## Configuration
 ### Textbelt
 Textbelt provides a way to send SMS messages from apps like this.
 If you would like to receive SMS notifications you need to setup textbelt.
